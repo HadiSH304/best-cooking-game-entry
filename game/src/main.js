@@ -25,6 +25,10 @@ const status = document.getElementById('status');
 const kitchen = createKitchen(createRandom(seed));
 const renderer = createRenderer(canvas);
 
+// Test handle: lets an automated play-test read the kitchen and drive the same clicks a
+// player makes, without changing how the game plays.
+window.__dapurKilat = { kitchen, layout: LAYOUT, ingredients: INGREDIENTS };
+
 function readBest() {
   try {
     return Number.parseInt(window.localStorage.getItem(BEST_KEY) ?? '0', 10) || 0;
